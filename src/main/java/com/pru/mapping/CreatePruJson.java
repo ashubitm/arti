@@ -74,6 +74,12 @@ public JsonObject createJSONPru(JSONObject inputJson) {
 	
 
 	
+	/*
+       
+
+      
+	 */
+	
 	//Try to load Pru2.0 Sample 
 	
 	 List <Map> list = new ArrayList <Map>();
@@ -102,6 +108,116 @@ public JsonObject createJSONPru(JSONObject inputJson) {
      
      addressList.add(mAddress);
 
+   //Bank Account Details
+     List <Map> bankAccList = new ArrayList <Map>();
+     Map<String, Object> bankAccount = new HashMap<String, Object>();
+     bankAccount.put("bankName",inputJson.get("EMAIL"));
+     bankAccount.put("bankCode","");
+     bankAccount.put("branchCode","");
+     bankAccount.put("accountNo","");
+     bankAccount.put("accountName","");
+    
+     
+     bankAccList.add(bankAccount);
+     
+     
+     //Life Style Details
+     
+  //Alergies 
+     
+     List <Map> allergiesList = new ArrayList <Map>();
+     Map<String, Object> allergies = new HashMap<String, Object>();
+     allergies.put("Nuts",inputJson.get("EMAIL"));
+     allergies.put("Wheat","");
+     allergies.put("Smoke","");
+     
+     allergiesList.add(allergies); 
+     
+     List <Map> familyHistoryList = new ArrayList <Map>();
+     Map<String, Object> familyHistory = new HashMap<String, Object>();
+     familyHistory.put("BloodPressure",inputJson.get("EMAIL"));
+     familyHistory.put("Obesity","");
+//     familyHistory.put("Smoke","");
+     
+     familyHistoryList.add(familyHistory); 
+     
+     
+     List <Map> lifestyleList = new ArrayList <Map>();
+     Map<String, Object> lifestyle = new HashMap<String, Object>();
+     lifestyle.put("ageNextBday",inputJson.get("EMAIL"));
+     lifestyle.put("isSmoker","");
+     lifestyle.put("height","");
+     lifestyle.put("heightUnit","");
+     lifestyle.put("weight","");
+     lifestyle.put("weightUnit","");
+     lifestyle.put("allergies",JsonArray.from(allergiesList));
+     lifestyle.put("familyHistory",JsonArray.from(familyHistoryList));
+     
+     
+     List <Map> spouseList = new ArrayList <Map>();
+     Map<String, Object> spouse = new HashMap<String, Object>();
+     spouse.put("id","");
+     spouse.put("name","");
+     spouse.put("contactDetails",JsonArray.from(contactList));
+    
+     List <Map> childrenList = new ArrayList <Map>();
+     Map<String, Object> children = new HashMap<String, Object>();
+     children.put("id",90031001);
+     children.put("name","");
+     
+    //TODO Check this  
+    children.put("chidren",JsonArray.from(childrenList));
+    
+    List <Map> financialStatusList = new ArrayList <Map>();
+    Map<String, Object> financialStatus = new HashMap<String, Object>();
+    
+    List <Map> incomeList = new ArrayList <Map>();
+    Map<String, Object> income = new HashMap<String, Object>();
+    income.put("source","Interest");
+    income.put("frequency","Monthly");
+    income.put("amount","");
+    income.put("currency","IDR");
+    incomeList.add(income);
+    
+    List <Map> assetsList = new ArrayList <Map>();
+    Map<String, Object> assets = new HashMap<String, Object>();
+    assets.put("type","CAR");
+    assets.put("valuation","");
+    assets.put("currency","");
+    assetsList.add(assets);
+
+    financialStatus.put("income",JsonArray.from(incomeList));
+    financialStatus.put("assets",JsonArray.from(assetsList));
+    
+    
+    List <Map> documentsList = new ArrayList <Map>();
+    Map<String, Object> documents = new HashMap<String, Object>();
+    documents.put("id",90031001);
+    documents.put("type","");
+    documents.put("name","");
+    documents.put("format","");
+    documents.put("filename","");
+    documents.put("extension","");
+    documentsList.add(documents);
+   
+
+    
+    List <Map> policyList = new ArrayList <Map>();
+    Map<String, Object> policy = new HashMap<String, Object>();
+    policy.put("Id","");
+    policy.put("policyNo","");
+    policy.put("product","");
+    policy.put("productOptions","");
+    policy.put("totalPremium","");
+    policy.put("term","");
+    policy.put("sumAssured","");
+    policy.put("contractDate","");
+    policy.put("inceptionDate","");
+    policy.put("endDate","");
+    policy.put("status","");
+    
+    policyList.add(policy);
+
 
  
      // Create a JSON Document
@@ -118,8 +234,18 @@ public JsonObject createJSONPru(JSONObject inputJson) {
      		.put("occupation", "")
      		.put("sex", "")
      		.put("contactDetails", JsonArray.from(contactList))
-     		.put("address", JsonArray.from(addressList));
-     //TODO add other Pru2.0		
+     		.put("address", JsonArray.from(addressList))
+     		.put("bankAccount", JsonArray.from(bankAccList))
+     		.put("lifestyle", JsonArray.from(lifestyleList))
+     		.put("spouse", JsonArray.from(spouseList))
+     		.put("children", JsonArray.from(childrenList))
+     		.put("financialStatus", JsonArray.from(financialStatusList))
+     		.put("documents", JsonArray.from(documentsList))
+     		.put("documents", JsonArray.from(policyList));
+     
+    //PRU 2.0 Cutomer Json complete (Test req)	
+     
+     
      
 
 
