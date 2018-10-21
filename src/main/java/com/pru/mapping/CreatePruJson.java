@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.JsonNode;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,7 +21,7 @@ public class CreatePruJson {
  * Load Input JSON Object and map them to Pru 2.0 	
  */
 	
-	public JsonObject loadTrasToPru(JSONObject inputJson,String file) {
+	public JsonObject loadTrasToPru(JsonNode inputJson,String file) {
 		
 		   try {
 	       JSONParser parser = new JSONParser();
@@ -70,7 +71,7 @@ public class CreatePruJson {
 /*
  * Create Pru type JSON and return couchbase type Json Object	
  */
-public JsonObject createJSONPru(JSONObject inputJson) {
+public JsonObject createJSONPru(JsonNode inputJson) {
 	
 
 	
@@ -84,21 +85,21 @@ public JsonObject createJSONPru(JSONObject inputJson) {
 	
 	 List <Map> list = new ArrayList <Map>();
      Map<String, Object> m = new HashMap<String, Object>();
-     m.put("firstName",inputJson.get("FIRST_NAME"));
-     m.put("surName",inputJson.get("LAST_NAME"));
+     m.put("firstName",inputJson.get("FIRST_NAME").asText());
+     m.put("surName",inputJson.get("LAST_NAME").asText());
      m.put("middleName","");
      list.add(m);
      //Contact Details
      List <Map> contactList = new ArrayList <Map>();
      Map<String, Object> m1 = new HashMap<String, Object>();
-     m1.put("email",inputJson.get("EMAIL"));
+     m1.put("email",inputJson.get("EMAIL").asText());
      m1.put("phone","");
      contactList.add(m1);
      
      //Address Details
      List <Map> addressList = new ArrayList <Map>();
      Map<String, Object> mAddress = new HashMap<String, Object>();
-     mAddress.put("line1",inputJson.get("EMAIL"));
+     mAddress.put("line1",inputJson.get("EMAIL").asText());
      mAddress.put("line2","");
      mAddress.put("city","");
      mAddress.put("zipcode","");
@@ -111,7 +112,7 @@ public JsonObject createJSONPru(JSONObject inputJson) {
    //Bank Account Details
      List <Map> bankAccList = new ArrayList <Map>();
      Map<String, Object> bankAccount = new HashMap<String, Object>();
-     bankAccount.put("bankName",inputJson.get("EMAIL"));
+     bankAccount.put("bankName",inputJson.get("EMAIL").asText());
      bankAccount.put("bankCode","");
      bankAccount.put("branchCode","");
      bankAccount.put("accountNo","");
@@ -127,7 +128,7 @@ public JsonObject createJSONPru(JSONObject inputJson) {
      
      List <Map> allergiesList = new ArrayList <Map>();
      Map<String, Object> allergies = new HashMap<String, Object>();
-     allergies.put("Nuts",inputJson.get("EMAIL"));
+     allergies.put("Nuts",inputJson.get("EMAIL").asText());
      allergies.put("Wheat","");
      allergies.put("Smoke","");
      
@@ -135,7 +136,7 @@ public JsonObject createJSONPru(JSONObject inputJson) {
      
      List <Map> familyHistoryList = new ArrayList <Map>();
      Map<String, Object> familyHistory = new HashMap<String, Object>();
-     familyHistory.put("BloodPressure",inputJson.get("EMAIL"));
+     familyHistory.put("BloodPressure",inputJson.get("EMAIL").asText());
      familyHistory.put("Obesity","");
 //     familyHistory.put("Smoke","");
      
@@ -144,16 +145,17 @@ public JsonObject createJSONPru(JSONObject inputJson) {
      
      List <Map> lifestyleList = new ArrayList <Map>();
      Map<String, Object> lifestyle = new HashMap<String, Object>();
-     lifestyle.put("ageNextBday",inputJson.get("EMAIL"));
+     lifestyle.put("ageNextBday",inputJson.get("EMAIL").asText());
      lifestyle.put("isSmoker","");
      lifestyle.put("height","");
      lifestyle.put("heightUnit","");
      lifestyle.put("weight","");
      lifestyle.put("weightUnit","");
-     lifestyle.put("allergies",JsonArray.from(allergiesList));
-     lifestyle.put("familyHistory",JsonArray.from(familyHistoryList));
      
+     lifestyle.put("allergies",allergiesList);
+     lifestyle.put("familyHistory",familyHistoryList);
      
+    
      List <Map> spouseList = new ArrayList <Map>();
      Map<String, Object> spouse = new HashMap<String, Object>();
      spouse.put("id","");
@@ -222,8 +224,8 @@ public JsonObject createJSONPru(JSONObject inputJson) {
  
      // Create a JSON Document
      JsonObject pruJson = JsonObject.create()
-             .put("Id", inputJson.get("EMPLOYEE_ID"))
-             .put("email", inputJson.get("EMAIL"))
+             .put("Id", inputJson.get("EMPLOYEE_ID").asText())
+             .put("email", inputJson.get("EMAIL").asText())
              .put("name", JsonArray.from(list))
              .put("dob", 11)
      		.put("type", "")
