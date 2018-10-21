@@ -1,0 +1,12 @@
+{
+"EMPLOYEE_ID": "1043",
+"FIRST_NAME": "ABC",
+"LAST_NAME" : "ZXY",
+"EMAIL": "abc@abc.com", 
+"SALARY": "1061.00",
+"COMMISSION_PCT": "0.00",
+"HIRE_DATE": "2016-07-21 10:16:11", 
+"JOB_ID": "SA_REP",
+"DEPT_ID":"90"
+}
+   

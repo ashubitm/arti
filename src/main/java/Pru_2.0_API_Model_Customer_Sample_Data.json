@@ -1,0 +1,127 @@
+{
+      "Id": 36000,
+      "name": {
+        "firstName": "Petra",
+        "surName": "Slater",
+        "middleName": "H"
+      },
+      "dob": "Fri Dec 07 1973 13:12:56 GMT+0530 (India Standard Time)",
+      "type": "Individual",
+      "status": "Inactive",
+      "sex": "female",
+      "maritalStatus": "Unamrried",
+      "nationality": "Indonesian",
+      "occupation": "Factory worker",
+      "contactDetails": {
+        "email": "petraslater@kengen.com",
+        "phone": "(911) 423-3638"
+      },
+      "address": {
+        "line1": "House No.49",
+        "line2": "Amboy Street",
+        "city": "Denpasar",
+        "state": "Bali",
+        "zipcode": 12771,
+        "country": "Indonesia",
+        "latitude": -1.409066,
+        "longitude": 114.131563
+      },
+      "bankAccount": {
+        "bankName": "Bank Central Asia",
+        "bankCode": "BCA",
+        "branchCode": "BRI 00012",
+        "accountNo": 2040608,
+        "accountName": "Estrada George"
+      },
+      "lifestyle": {
+        "ageNextBday": 37,
+        "isSmoker": "Yes",
+        "height": 176,
+        "heightUnit": "cm",
+        "weight": 53.9,
+        "weightUnit": "kg",
+        "allergies": [
+          "Nuts",
+          "Wheat",
+          "Smoke"
+        ],
+        "familyHistory": [
+          "Blood Pressure",
+          "Obesity"
+        ]
+      },
+      "spouse": {
+        "id": 90032001,
+        "name": "Jarvis Pacheco",
+        "contactDetails": {
+          "email": "jarvispacheco@kengen.com",
+          "phone": "(904) 569-2500"
+        }
+      },
+      "children": [
+        {
+          "id": 90031001,
+          "name": "Valarie Hurley"
+        },
+        {
+          "id": 90031002,
+          "name": "Kristy Scott"
+        },
+        {
+          "id": 90031003,
+          "name": "Alyce Rocha"
+        }
+      ],
+      "financialStatus": {
+        "income": {
+          "source": "Interest",
+          "frequency": "Monthly",
+          "amount": 202712061,
+          "currency": "IDR"
+        },
+        "assets": {
+          "type": "Car",
+          "valuation": 66850480077,
+          "currency": "IDR"
+        }
+      },
+      "documents": [
+        {
+          "id": 90036001,
+          "type": "Graduation Certificate",
+          "name": "Salinas Webster",
+          "format": "PNG",
+          "filename": "BIRTH201",
+          "extension": "PDF"
+        },
+        {
+          "id": 90036002,
+          "type": "Graduation Certificate",
+          "name": "Gaines Gamble",
+          "format": "JPG",
+          "filename": "NID101",
+          "extension": "PDF"
+        },
+        {
+          "id": 90036003,
+          "type": "National ID",
+          "name": "Ward Conley",
+          "format": "JPG",
+          "filename": "BIRTH201",
+          "extension": "PNG"
+        }
+      ],
+      "policy": {
+        "Id": 100331155,
+        "policyNo": "MAX20161911",
+        "product": "PRD::?::1215",
+        "productOptions": "NA",
+        "totalPremium": "30,821,406",
+        "term": 5,
+        "sumAssured": "86,432,219,906",
+        "contractDate": "2014-05-27T08:18:34 -06:-30",
+        "inceptionDate": "2014-06-18T07:04:12 -06:-30",
+        "endDate": "2020-02-26T10:35:06 -06:-30",
+        "status": "Lapsed"
+      }
+    }
